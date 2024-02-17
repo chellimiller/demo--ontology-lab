@@ -1,7 +1,7 @@
 {
-  "name": "@utori-dev/template-react-app-prototype",
+  "name": "@utori-dev/demo--ontology-lab",
   "version": "1.0.0",
-  "description": "Template for creating prototypes with React.",
+  "description": "A tool to create, edit, and explore ontologies",
   "main": "index.js",
   "scripts": {
     "build": "webpack --mode production",
@@ -38,7 +38,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/utori-dev/template-react-app-prototype.git"
+    "url": "git+https://github.com/utori-dev/demo--ontology-lab.git"
   },
   "keywords": [
     "html",
@@ -50,9 +50,9 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/utori-dev/template-react-app-prototype/issues"
+    "url": "https://github.com/utori-dev/demo--ontology-lab/issues"
   },
-  "homepage": "https://github.com/utori-dev/template-react-app-prototype#readme",
+  "homepage": "https://github.com/utori-dev/demo--ontology-lab#readme",
   "dependencies": {
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",

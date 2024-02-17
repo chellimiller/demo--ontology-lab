@@ -6,6 +6,7 @@ const path = require('path');
 const ROOT = path.dirname(__dirname);
 const SRC = path.join(ROOT, 'src');
 const PUBLIC = path.join(ROOT, 'public');
+const { kebabCase } = require('lodash');
 
 /**
  * @typedef {Object} FileTransformer
