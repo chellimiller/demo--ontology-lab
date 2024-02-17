@@ -1,0 +1,243 @@
+/* Specifies the styles for the root app component. */
+#app {
+  /* Ensure the root app element takes up the full screen size. */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+:root {
+  --border-radius--xs: calc(var(--spacing) * 0.5);
+  --border-radius--sm: calc(var(--spacing) * 1);
+  --border-radius--md: calc(var(--spacing) * 1.5);
+  --border-radius--lg: calc(var(--spacing) * 2);
+  --border-radius--xl: calc(var(--spacing) * 4);
+  --border-radius--rounded: 1000px;
+  --border-radius--circle: 100%;
+  --border-radius--square: 0;
+
+  --border-width--xs: calc(var(--spacing) * 0.125);
+  --border-width--sm: calc(var(--spacing) * 0.25);
+  --border-width--md: calc(var(--spacing) * 0.5);
+
+  --color--neutral-00: #000000;
+  --color--neutral-05: #0c0c0c;
+  --color--neutral-10: #181818;
+  --color--neutral-15: #252525;
+  --color--neutral-20: #313131;
+  --color--neutral-25: #3d3d3d;
+  --color--neutral-30: #494949;
+  --color--neutral-35: #555555;
+  --color--neutral-40: #626262;
+  --color--neutral-45: #6e6e6e;
+  --color--neutral-50: #767676;
+  --color--neutral-55: #878787;
+  --color--neutral-60: #8a8a8a;
+  --color--neutral-65: #a2a2a2;
+  --color--neutral-70: #afafaf;
+  --color--neutral-75: #bdbdbd;
+  --color--neutral-80: #cacaca;
+  --color--neutral-85: #d7d7d7;
+  --color--neutral-90: #e4e4e4;
+  --color--neutral-95: #f2f2f2;
+  --color--neutral-97: #f7f7f7;
+  --color--neutral-99: #fcfcfc;
+  --color--neutral-100: #ffffff;
+
+  --color--primary-00: #000000;
+  --color--primary-05: #060c11;
+  --color--primary-10: #0b1822;
+  --color--primary-15: #112333;
+  --color--primary-20: #162f44;
+  --color--primary-25: #1c3b54;
+  --color--primary-30: #214765;
+  --color--primary-35: #275276;
+  --color--primary-40: #2c5e87;
+  --color--primary-45: #326a98;
+  --color--primary-50: #4d78ab;
+  --color--primary-55: #5785ab;
+  --color--primary-60: #6a93b4;
+  --color--primary-65: #7da0bd;
+  --color--primary-70: #8faec7;
+  --color--primary-75: #a2bbd0;
+  --color--primary-80: #b4c9da;
+  --color--primary-85: #c7d6e3;
+  --color--primary-90: #dae4ec;
+  --color--primary-95: #ecf1f6;
+  --color--primary-97: #f4f7f9;
+  --color--primary-99: #fbfcfd;
+  --color--primary-100: #ffffff;
+
+  --font-size--xs: 0.85rem;
+  --font-size--sm: 1rem;
+  --font-size--md: 1.25rem;
+  --font-size--lg: 1.5rem;
+  --font-size--xl: 2rem;
+
+  --font-weight--bold: bold;
+  --font-weight--heading: 300;
+  --font-weight: 300;
+
+  --font-family: 'Roboto', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  --font-family--heading: var(--font-family);
+
+  --spacing: 0.25rem;
+
+  --p--xs: calc(var(--spacing) * 0.5);
+  --p--sm: calc(var(--spacing) * 1);
+  --p--md: calc(var(--spacing) * 2);
+  --p--lg: calc(var(--spacing) * 3);
+  --p--xl: calc(var(--spacing) * 4);
+
+  --m--xs: calc(var(--spacing) * 1);
+  --m--sm: calc(var(--spacing) * 2);
+  --m--md: calc(var(--spacing) * 4);
+  --m--lg: calc(var(--spacing) * 6);
+  --m--xl: calc(var(--spacing) * 8);
+
+  --target--size: calc(var(--spacing) * 11);
+
+  --scrollbar--size: calc(var(--spacing) * 3);
+  --scrollbar--track-radius: 0;
+  --scrollbar--thumb-radius: var(--border-radius--rounded);
+
+  --shadow--md: 0 calc(var(--spacing)) var(--spacing) 0 rgba(0, 0, 0, 0.25);
+}
+
+.light-mode {
+  --color--background: var(--color--neutral-90);
+  --color--on-background: var(--color--neutral-10);
+
+  --color--link: var(--color--primary-50);
+  --color--link--hover: var(--color--primary-20);
+
+  --color--header: var(--color--neutral-97);
+  --color--on-header: var(--color--neutral-10);
+
+  --color--neutral--surface: var(--color--neutral-100);
+  --color--neutral--on-surface: var(--color--neutral-20);
+
+  --color--neutral--outline: var(--color--neutral-70);
+  --color--neutral--outline--muted: var(--color--neutral-80);
+
+  --color--neutral--container: var(--color--neutral-95);
+  --color--neutral--container--hover: var(--color--neutral-100);
+  --color--neutral--container--active: var(--color--neutral-97);
+  --color--neutral--container--disabled: var(--color--neutral-90);
+
+  --color--neutral--on-container: var(--color--neutral-35);
+  --color--neutral--on-container--muted: var(--color--neutral-45);
+  --color--neutral--on-container--hover: var(--color--neutral-35);
+  --color--neutral--on-container--active: var(--color--neutral-25);
+  --color--neutral--on-container--disabled: var(--color--neutral-50);
+
+  --color--neutral--main: var(--color--neutral-45);
+  --color--neutral--main--hover: var(--color--neutral-35);
+  --color--neutral--main--active: var(--color--neutral-25);
+  --color--neutral--main--disabled: var(--color--neutral-55);
+
+  --color--neutral--on-main: var(--color--neutral-90);
+  --color--neutral--on-main--muted: var(--color--neutral-75);
+  --color--neutral--on-main--hover: var(--color--neutral-95);
+  --color--neutral--on-main--active: var(--color--neutral-95);
+  --color--neutral--on-main--disabled: var(--color--neutral-75);
+
+  --scrollbar--thumb-color: var(--color--neutral-80);
+  --scrollbar--thumb-color--hover: var(--color--neutral-70);
+  --scrollbar--thumb-color--active: var(--color--neutral-60);
+  --scrollbar--track-color: var(--color--neutral-90);
+  --scrollbar--track-color--hover: var(--scrollbar--track-color);
+  --scrollbar--track-color--active: var(--color--neutral-85);
+}
+
+.dark-mode {
+  --color--background: var(--color--neutral-15);
+  --color--on-background: var(--color--neutral-99);
+
+  --color--link: var(--color--primary-75);
+  --color--link--hover: var(--color--primary-50);
+
+  --color--header: var(--color--neutral-25);
+  --color--on-header: var(--color--neutral-99);
+
+  --color--neutral--surface: var(--color--neutral-20);
+  --color--neutral--on-surface: var(--color--neutral-85);
+
+  --color--neutral--outline: var(--color--neutral-40);
+  --color--neutral--outline--muted: var(--color--neutral-25);
+
+  --color--neutral--container: var(--color--neutral-30);
+  --color--neutral--container--hover: var(--color--neutral-55);
+  --color--neutral--container--active: var(--color--neutral-50);
+  --color--neutral--container--disabled: var(--color--neutral-40);
+
+  --color--neutral--on-container: var(--color--neutral-90);
+  --color--neutral--on-container--muted: var(--color--neutral-85);
+  --color--neutral--on-container--hover: var(--color--neutral-99);
+  --color--neutral--on-container--active: var(--color--neutral-95);
+  --color--neutral--on-container--disabled: var(--color--neutral-80);
+
+  --color--neutral--main: var(--color--neutral-75);
+  --color--neutral--main--hover: var(--color--neutral-85);
+  --color--neutral--main--active: var(--color--neutral-95);
+  --color--neutral--main--disabled: var(--color--neutral-60);
+
+  --color--neutral--on-main: var(--color--neutral-35);
+  --color--neutral--on-main--muted: var(--color--neutral-45);
+  --color--neutral--on-main--hover: var(--color--neutral-25);
+  --color--neutral--on-main--active: var(--color--neutral-15);
+  --color--neutral--on-main--disabled: var(--color--neutral-40);
+
+  --scrollbar--thumb-color: var(--color--neutral-50);
+  --scrollbar--thumb-color--hover: var(--color--neutral-60);
+  --scrollbar--thumb-color--active: var(--color--neutral-40);
+  --scrollbar--track-color: var(--color--neutral-30);
+  --scrollbar--track-color--hover: var(--color--neutral-35);
+  --scrollbar--track-color--active: var(--color--neutral-25);
+}
+
+a {
+  color: var(--color--link);
+}
+
+a:hover {
+  color: var(--color--link--hover);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar--thumb-color) var(--scrollbar--track-color);
+}
+
+*::-webkit-scrollbar {
+  height: var(--scrollbar--size);
+  width: var(--scrollbar--size);
+}
+
+*::-webkit-scrollbar-track {
+  border-radius: var(--scrollbar--track-radius);
+  background-color: var(--scrollbar--track-color);
+}
+
+*::-webkit-scrollbar-track:hover {
+  background-color: var(--scrollbar--track-color--hover);
+}
+
+*::-webkit-scrollbar-track:active {
+  background-color: var(--scrollbar--track-color--active);
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: var(--scrollbar--thumb-radius);
+  background-color: var(--scrollbar--thumb-color);
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: var(--scrollbar--thumb-color--hover);
+}
+
+*::-webkit-scrollbar-thumb:active {
+  background-color: var(--scrollbar--thumb-color--active);
+}

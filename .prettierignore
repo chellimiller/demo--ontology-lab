@@ -1,0 +1,18 @@
+# This file tells Prettier which files and directories should NOT be formatted.
+
+# Dependencies
+node_modules
+
+# Output
+dist
+coverage
+
+# Project Files
+.prettierignore
+.eslintignore
+.gitignore
+LICENSE
+
+# Files
+*.ico
+*.png

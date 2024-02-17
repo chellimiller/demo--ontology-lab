@@ -1,0 +1,109 @@
+{
+  "name": "@utori-dev/template-react-app-prototype",
+  "version": "1.0.0",
+  "description": "Template for creating prototypes with React.",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --mode production",
+    "clean": "rimraf .cache .tmp lib dist build",
+    "deploy": "gh-pages -d dist",
+    "format": "prettier **/** --write",
+    "generate:icon": "node ./.templates/generate.cjs icon",
+    "generate:emotion": "node ./.templates/generate.cjs emotion",
+    "generate:slice": "node ./.templates/generate.cjs slice",
+    "generate:component": "node ./.templates/generate.cjs component",
+    "generate:view": "node ./.templates/generate.cjs view",
+    "lint": "eslint src/** --ext .js,.jsx,.ts,.tsx",
+    "start": "webpack serve --mode development",
+    "start:production": "webpack serve --mode production",
+    "test": "jest",
+    "setup": "node ./.scripts/setup.cjs"
+  },
+  "author": {
+    "name": "Michelle Miller",
+    "email": "michelle@utori.dev",
+    "url": "https://github.com/chellimiller"
+  },
+  "maintainers": [
+    {
+      "name": "Michelle Miller",
+      "email": "michelle@utori.dev",
+      "url": "https://github.com/chellimiller"
+    },
+    {
+      "name": "Jared Bourget",
+      "email": "jared@utori.dev",
+      "url": "https://github.com/JaredBourget"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/utori-dev/template-react-app-prototype.git"
+  },
+  "keywords": [
+    "html",
+    "css",
+    "javascript",
+    "app",
+    "webpack",
+    "template"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/utori-dev/template-react-app-prototype/issues"
+  },
+  "homepage": "https://github.com/utori-dev/template-react-app-prototype#readme",
+  "dependencies": {
+    "@emotion/react": "^11.11.3",
+    "@emotion/styled": "^11.11.0",
+    "@floating-ui/react": "^0.26.5",
+    "@reduxjs/toolkit": "^2.0.1",
+    "clsx": "^2.0.0",
+    "dexie": "^3.2.3",
+    "dexie-react-hooks": "^1.1.3",
+    "lodash": "^4.17.21",
+    "luxon": "^3.3.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.10.0",
+    "redux-persist": "^6.0.0",
+    "type-fest": "^3.7.2",
+    "usehooks-ts": "^2.9.4"
+  },
+  "devDependencies": {
+    "@swc/core": "^1.2.222",
+    "@swc/jest": "^0.2.22",
+    "@testing-library/react": "^14.1.2",
+    "@types/jest": "^28.1.6",
+    "@types/lodash": "^4.14.192",
+    "@types/react": "^18.0.15",
+    "@types/react-dom": "^18.0.6",
+    "@types/react-test-renderer": "^18.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.57.0",
+    "@typescript-eslint/parser": "^5.57.0",
+    "copy-webpack-plugin": "^11.0.0",
+    "css-loader": "^6.7.1",
+    "eslint": "^8.2.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "gh-pages": "^6.1.1",
+    "jest": "^28.1.3",
+    "jest-environment-jsdom": "^28.1.0",
+    "jest-transform-stub": "^2.0.0",
+    "mini-css-extract-plugin": "^2.6.0",
+    "mustache": "^4.2.0",
+    "prettier": "^2.6.2",
+    "rimraf": "^5.0.5",
+    "ts-loader": "^9.3.1",
+    "typescript": "^4.7.4",
+    "webpack": "^5.72.1",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.9.0",
+    "yargs": "^17.7.1"
+  }
+}
