@@ -5,7 +5,7 @@ class DexieDatabase extends Dexie {
   entities!: Table<Entity, Entity['id']>;
 
   constructor() {
-    super('utori-dev--react-app-prototype');
+    super('demo-ontology-lab');
     this.version(1).stores({
       entities: '++id',
     });

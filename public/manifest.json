@@ -1,13 +1,13 @@
 {
   "$schema": "https://json.schemastore.org/web-manifest-combined.json",
-  "name": "React App Prototype",
-  "short_name": "Prototype",
+  "name": "Demo Ontology Lab",
+  "short_name": "demo--ontology-lab",
   "start_url": ".",
   "scope": ".",
   "display": "minimal-ui",
   "background_color": "#ffffff",
   "theme_color": "#4898da",
-  "description": "Template for creating prototypes with React.",
+  "description": "A tool to create, edit, and explore ontologies",
   "icons": [
     {
       "src": "assets/logo/logo-512.png",
