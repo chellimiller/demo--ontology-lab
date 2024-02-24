@@ -6,7 +6,7 @@ import { text } from './ui/emotion';
 import { openCreditsDialog, toggleThemeMode, useThemeMode } from './state';
 import { Button, Header, Main } from './ui/components';
 import { DarkModeIcon, InfoIcon, LightModeIcon } from './ui/icons';
-import { CreditsDialog, HomeView } from './views';
+import { CreditsDialog, ExplorerView, BuilderView } from './views';
 
 const AppRoot = styled.div`
   position: fixed;
@@ -56,10 +56,14 @@ function App(): React.ReactElement | null {
       </Header>
       <Main>
         <Routes>
-          <Route path="/" element={<Navigate to="home" />} />
-          <Route path="/home">
-            <Route index element={<HomeView />} />
+          <Route path="/" element={<Navigate to="explorer" />} />
+          <Route path="/explorer">
+            <Route index element={<ExplorerView />} />
           </Route>
+          <Route path="/builder">
+            <Route index element={<BuilderView />} />
+          </Route>
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </Main>
       <CreditsDialog />
