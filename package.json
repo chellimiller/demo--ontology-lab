@@ -19,11 +19,6 @@
     "test": "jest",
     "setup": "node ./.scripts/setup.cjs"
   },
-  "author": {
-    "name": "Michelle Miller",
-    "email": "michelle@utori.dev",
-    "url": "https://github.com/chellimiller"
-  },
   "maintainers": [
     {
       "name": "Michelle Miller",
