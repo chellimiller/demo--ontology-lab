@@ -1,9 +1,9 @@
 // Types are kept outside of the './entities' file to avoid circular dependencies.
 
-/**
- * Example entity stored in Dexie.
- */
-export type Entity = {
+export type BuilderEntity = {
   id: string;
-  name: string;
+};
+
+export type ExplorerEntity = {
+  id: string;
 };

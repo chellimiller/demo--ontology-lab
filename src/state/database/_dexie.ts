@@ -1,13 +1,16 @@
 import Dexie, { Table } from 'dexie';
-import { Entity } from './types';
+import { BuilderEntity, ExplorerEntity } from './types';
 
 class DexieDatabase extends Dexie {
-  entities!: Table<Entity, Entity['id']>;
+  builder!: Table<BuilderEntity, BuilderEntity['id']>;
+
+  explorer!: Table<ExplorerEntity, ExplorerEntity['id']>;
 
   constructor() {
     super('demo-ontology-lab');
     this.version(1).stores({
-      entities: '++id',
+      builder: '++id',
+      explorer: '++id',
     });
   }
 }
