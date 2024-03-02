@@ -4,7 +4,10 @@ import { setExplorerEntity } from '../../../state';
 /**
  * Props for the UploadOntology
  */
-export type UploadOntologyProps = React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> & {
+export type UploadOntologyProps = React.DetailedHTMLProps<
+  React.InputHTMLAttributes<HTMLInputElement>,
+  HTMLInputElement
+> & {
   label?: string;
 };
 

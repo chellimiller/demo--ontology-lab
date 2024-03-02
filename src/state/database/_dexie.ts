@@ -1,7 +1,7 @@
 import Dexie, { Table } from 'dexie';
 import { BuilderEntity, ExplorerEntity } from './types';
 
-class DexieDatabase extends Dexie {
+export class DexieDatabase extends Dexie {
   builder!: Table<BuilderEntity, BuilderEntity['id']>;
 
   explorer!: Table<ExplorerEntity, ExplorerEntity['id']>;

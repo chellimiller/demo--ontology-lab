@@ -1,6 +1,7 @@
 import { useLiveQuery } from 'dexie-react-hooks';
 import database from './_dexie';
 import { ExplorerEntity } from './types';
+import useAsyncLiveQuery from './useAsyncLiveQuery';
 
 function getExplorerEntity(
   id: ExplorerEntity['id']
@@ -8,10 +9,8 @@ function getExplorerEntity(
   return database.explorer.get(id);
 }
 
-export function useExplorerEntity(
-  id: ExplorerEntity['id']
-): ExplorerEntity | undefined {
-  return useLiveQuery(() => getExplorerEntity(id), [id]);
+export function useExplorerEntity(id: ExplorerEntity['id']) {
+  return useAsyncLiveQuery(() => getExplorerEntity(id), [id]);
 }
 
 function getExplorerEntities(): Promise<ExplorerEntity[]> {

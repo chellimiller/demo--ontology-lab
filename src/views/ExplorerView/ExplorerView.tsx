@@ -18,7 +18,7 @@ const ExplorerView: React.FC<ExplorerViewProps> = (props) => {
   return (
     <div {...forwardedProps}>
       <h2>Explorer View</h2>
-      <UploadOntology accept="application/json, application/csv"/>
+      <UploadOntology hidden accept="application/json, application/csv"/>
     </div>
   );
 };
