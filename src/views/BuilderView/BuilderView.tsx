@@ -2,6 +2,7 @@
 import * as React from 'react';
 import { uniqueId } from 'lodash';
 import { AbstractVizManager, Button, Viz } from '../../ui/components';
+import { SetRequired } from 'type-fest';
 
 /**
  * Props for the BuilderView component.
@@ -9,35 +10,81 @@ import { AbstractVizManager, Button, Viz } from '../../ui/components';
 export type BuilderViewProps = React.HTMLAttributes<HTMLDivElement>;
 
 type Node = {
+  id: string;
   name: string;
+  x: number;
+  y: number;
+};
+type Link = {
+  source: string;
+  target: string;
 };
 
 type BuilderState = {
   nodes: Map<string, Node>;
+  links: Link[];
+};
+
+type BuilderVizSettings = {
+  height: number;
+  width: number;
 };
 
 class BuilderVizManager extends AbstractVizManager<unknown> {
-  constructor(private state: BuilderState = { nodes: new Map() }) {
+  private state: BuilderState;
+
+  private settings: BuilderVizSettings;
+
+  constructor(settings: Partial<BuilderVizSettings> = {}) {
     super();
+    const { height = 500, width = 500 } = settings;
+    this.settings = Object.freeze({ height, width });
+    this.state = { nodes: new Map(), links: [] };
     this.addNode = this.addNode.bind(this);
-    this.selection.attr('width', 500).attr('height', 500);
+    this.render = this.render.bind(this);
+    this.setState = this.setState.bind(this);
+    this.selection.attr('width', width).attr('height', height);
   }
 
-  addNode(node: Node) {
-    const id = uniqueId('builder-node');
-    const group = this.selection
-      .append('g')
-      .attr('id', id)
-      .attr('transform', `translate(${250}, ${250})`);
-    const circle = group
-      .append('circle')
-      .attr('rx', 50)
-      .attr('ry', 50)
-      .attr('x', 50)
-      .attr('y', 50);
-    const text = group.append('text').text(node.name);
+  render() {
+    const links = this.selection
+      .selectAll('line')
+      .data(this.state.links)
+      .enter()
+      .append('line')
+      .style('stroke', '#AAA');
 
-    this.state.nodes.set(id, node);
+    const nodes = this.selection
+      .selectAll('circle')
+      .data(Array.from(this.state.nodes.values()))
+      .enter()
+      .append('circle')
+      .attr('r', 20)
+      .attr('cx', (node) => node.x)
+      .attr('cy', (node) => node.y)
+      .style('fill', '#555');
+  }
+
+  setState(state: BuilderState) {
+    this.state = state;
+    this.render();
+  }
+
+  addNode(node: SetRequired<Partial<Node>, 'name'>) {
+    const {
+      name,
+      id = uniqueId('builder-node'),
+      x = Math.random() * this.settings.width,
+      y = Math.random() * this.settings.height,
+    } = node;
+
+    const nodes = new Map(this.state.nodes);
+    nodes.set(id, { name, id, x, y });
+
+    this.setState({
+      ...this.state,
+      nodes,
+    });
   }
 }
 
