@@ -1,8 +1,8 @@
 /* eslint-disable class-methods-use-this */
 import * as React from 'react';
 import { uniqueId } from 'lodash';
-import { AbstractVizManager, Button, Viz } from '../../ui/components';
 import { SetRequired } from 'type-fest';
+import { AbstractVizManager, Button, Viz } from '../../ui/components';
 
 /**
  * Props for the BuilderView component.
@@ -15,6 +15,7 @@ type Node = {
   x: number;
   y: number;
 };
+
 type Link = {
   source: string;
   target: string;
@@ -22,12 +23,14 @@ type Link = {
 
 type BuilderState = {
   nodes: Map<string, Node>;
-  links: Link[];
+  links: Map<string, Link>;
+  selected?: string;
 };
 
 type BuilderVizSettings = {
   height: number;
   width: number;
+  nodeRadius: number;
 };
 
 class BuilderVizManager extends AbstractVizManager<unknown> {
@@ -37,9 +40,9 @@ class BuilderVizManager extends AbstractVizManager<unknown> {
 
   constructor(settings: Partial<BuilderVizSettings> = {}) {
     super();
-    const { height = 500, width = 500 } = settings;
-    this.settings = Object.freeze({ height, width });
-    this.state = { nodes: new Map(), links: [] };
+    const { height = 500, width = 500, nodeRadius = 25 } = settings;
+    this.settings = Object.freeze({ height, width, nodeRadius });
+    this.state = { nodes: new Map(), links: new Map() };
     this.addNode = this.addNode.bind(this);
     this.render = this.render.bind(this);
     this.setState = this.setState.bind(this);
@@ -47,14 +50,17 @@ class BuilderVizManager extends AbstractVizManager<unknown> {
   }
 
   render() {
-    const links = this.selection
+    // eslint-disable-next-line prefer-destructuring
+    const selection = this.selection;
+
+    const links = selection
       .selectAll('line')
-      .data(this.state.links)
+      .data(Array.from(this.state.links.values()))
       .enter()
       .append('line')
       .style('stroke', '#AAA');
 
-    const nodes = this.selection
+    const nodes = selection
       .selectAll('circle')
       .data(Array.from(this.state.nodes.values()))
       .enter()
@@ -62,7 +68,14 @@ class BuilderVizManager extends AbstractVizManager<unknown> {
       .attr('r', 20)
       .attr('cx', (node) => node.x)
       .attr('cy', (node) => node.y)
-      .style('fill', '#555');
+      .style('fill', '#555')
+      .style('cursor', 'pointer')
+      .on('click', (event: PointerEvent) => {
+        console.log(event.target);
+        const element = event.target as SVGCircleElement;
+        selection.selectAll('circle').style('fill', '#555');
+        element.style.fill = '#999';
+      });
   }
 
   setState(state: BuilderState) {
@@ -71,11 +84,15 @@ class BuilderVizManager extends AbstractVizManager<unknown> {
   }
 
   addNode(node: SetRequired<Partial<Node>, 'name'>) {
+    const { height, width, nodeRadius } = this.settings;
+    const getRandomNodePosition = (size: number) =>
+      Math.random() * (size - nodeRadius * 2) + nodeRadius;
+
     const {
       name,
       id = uniqueId('builder-node'),
-      x = Math.random() * this.settings.width,
-      y = Math.random() * this.settings.height,
+      x = getRandomNodePosition(width),
+      y = getRandomNodePosition(height),
     } = node;
 
     const nodes = new Map(this.state.nodes);
