@@ -148,8 +148,7 @@ class BuilderVizManager extends AbstractVizManager<unknown> {
       return;
     }
 
-    if (!event.ctrlKey) {
-      console.log(id);
+    if (!event.shiftKey) {
       this.setState({ ...this.state, selected: id });
       return;
     }
