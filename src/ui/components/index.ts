@@ -8,3 +8,5 @@ export * from './Header';
 export { default as Header } from './Header';
 export * from './Main';
 export { default as Main } from './Main';
+export * from './Viz';
+export { default as Viz } from './Viz';

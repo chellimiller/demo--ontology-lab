@@ -70,6 +70,7 @@
     "@swc/core": "^1.2.222",
     "@swc/jest": "^0.2.22",
     "@testing-library/react": "^14.1.2",
+    "@types/d3": "^7.4.3",
     "@types/jest": "^28.1.6",
     "@types/lodash": "^4.14.192",
     "@types/react": "^18.0.15",
